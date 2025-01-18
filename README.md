@@ -1,40 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Mini ERP System for Product Management
 
-## Getting Started
+## Project Overview
+The **Mini ERP System for Product Management** is a full-stack application built with **Next.js** and **PostgreSQL**. This system enables users to manage products, handle sales orders, and generate sales reports. It covers the following core functionalities:
 
-First, run the development server:
+- **Product Management**: CRUD operations for managing products.
+- **Sales Order Management**: Create, update, and view sales orders with order items.
+- **Sales Summary Report**: Generate a report summarizing sales data, including total orders, total revenue, top products, and sales by order status.
+
+This project was developed as a practical test for a Next.js developer intern.
+
+## Technologies Used
+- **Next.js**: React framework for building the web application.
+- **React**: Library for building UI components with hooks for state management.
+- **PostgreSQL**: Relational database to store product, order, and report data.
+- **Prisma**: ORM for interacting with PostgreSQL database.
+- **Tailwind CSS**: Utility-first CSS framework for styling the app.
+- **ShadCN**: Used for UI components and modal handling.
+- **React Hook Form**: For managing form state and validation.
+- **Yup**: For schema validation on form inputs.
+- **React Icons**: For adding icons to the UI components.
+
+## Setup and Installation
+
+### Prerequisites
+Make sure the following are installed:
+- Node.js (version 14 or above)
+- PostgreSQL database (or an accessible PostgreSQL instance)
+
+### Installation Steps
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/mini-erp-project.git
+   cd mini-erp-project ```
+
+2. **Install dependencies**:
+  ```bash  
+  npm install
+  ```
+3. ** Set up the environment variables**:
+    - Create a `.env` file at the root of the project.
+    - Populate it with the required values (database connection, etc.) from the `.env.example` file.
+
+4. **Run database migrations**:
+
+Run the following command to apply the migrations to your database:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx prisma migrate dev
 ```
+5. **Start the development server**:
+```bash
+npm run dev
+```
+6. **Access the application**:
+Open your web browser and navigate to `http://localhost:3000` to access the application
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## API Documentation
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Product API
+- **GET /api/products**: List all products.
+- **GET /api/products/[id]**: Get a specific product by ID.
+- **POST /api/products**: Create a new product.
+- **PUT /api/products/[id]**: Update an existing product by ID.
+- **DELETE /api/products/[id]**: Delete a product by ID.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### Sales Order API
+- **POST /api/sales-orders**: Create a new sales order.
+- **GET /api/sales-orders**: List all sales orders.
+- **GET /api/sales-orders/[id]**: View a specific sales order by ID.
+- **PUT /api/sales-orders/[id]**: Update the status of a sales order.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Report API
+- **GET /api/reports/sales-summary**: Generate a sales summary report, including:
+  - Total number of orders
+  - Total sales amount
+  - Top 5 selling products by quantity and revenue
+  - Sales by status (pending, completed, cancelled)
 
-## Learn More
+## Postman API Link
+You can access the full API documentation and test the endpoints via Postman:
+[Postman API Documentation](https://team11-9575.postman.co/workspace/ERP~ec394b7c-2933-4e02-8d0d-6a5bdb156bac/request/28730063-5480bf40-1c1c-41d2-9551-832f620952f2?action=share&creator=28730063&ctx=documentation)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Feel free to explore the API through Postman and use it to interact with the backend.
