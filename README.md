@@ -29,31 +29,30 @@ Make sure the following are installed:
 
 ### Installation Steps
 1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/mini-erp-project.git
-   cd mini-erp-project ```
+    ```bash
+    git clone https://github.com/your-username/mini-erp-project.git
+    cd mini-erp-project ```
 
 2. **Install dependencies**:
-  ```bash  
-  npm install
-  ```
+    ```bash  
+    npm install
+    ```
 3. ** Set up the environment variables**:
     - Create a `.env` file at the root of the project.
     - Populate it with the required values (database connection, etc.) from the `.env.example` file.
 
 4. **Run database migrations**:
+    - Run the following command to apply the migrations to your database:
 
-Run the following command to apply the migrations to your database:
-
-```bash
-npx prisma migrate dev
-```
+    ```bash
+    npx prisma migrate dev
+    ```
 5. **Start the development server**:
-```bash
-npm run dev
-```
+    ```bash
+    npm run dev
+    ```
 6. **Access the application**:
-Open your web browser and navigate to `http://localhost:3000` to access the application
+    - Open your web browser and navigate to [http://localhost:3000](http://localhost:3000) to access the application
 
 
 ## API Documentation
